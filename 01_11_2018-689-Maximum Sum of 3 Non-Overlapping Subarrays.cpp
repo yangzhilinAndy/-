@@ -1,5 +1,5 @@
 /**
-3 is a special number. 
+
 If we fix the middle subarray, then the problem is reduced to finding one maximal subarray in the range before and after this middle subarray, which could be solved in linear time. And there are O(n) number of possible middle subarrays.
 
 */
