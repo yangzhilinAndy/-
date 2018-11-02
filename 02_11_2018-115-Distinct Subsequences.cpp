@@ -1,3 +1,9 @@
+/* dynamic programming
+The recurrence relation is 2-D, but can use only 2 1-D array to save space.*/
+
+
+
+
 class Solution {
 public:
     int dp[50000], temp[50000];
