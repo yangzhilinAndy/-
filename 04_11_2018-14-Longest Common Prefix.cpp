@@ -1,4 +1,7 @@
-//approach 1: divide and conquer
+/*approach 1: divide and conquer
+There are other approaches such as Horizontal scanning, Vertical scanning and Binary search.
+Solution idea source: https://leetcode.com/problems/longest-common-prefix/solution/
+*/
 
 class Solution {
 public:
