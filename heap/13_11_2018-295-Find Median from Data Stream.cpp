@@ -34,4 +34,53 @@ public:
 };
 
 //Solution 2: Use multiset to simulate self-balancing binary search tree
+class MedianFinder {
+private:
+    multiset<double> BST;
+    multiset<double>::iterator low,high;
+public:
+    /** initialize your data structure here. */
+    MedianFinder():low(BST.end()),high(BST.end()){   
+    }
+    
+    void addNum(int num) {
+       if (BST.size()==0)
+       {
+           low=BST.insert(num);
+           high=low;
+       }
+        else if (BST.size()%2!=0)
+        {
+        BST.insert(num);
+        if (num<*low)
+            low--;
+        else
+            high++;          
+        }
+        else
+        {
+        BST.insert(num);
+        if (num<*low)
+            high--;
+        else if(num>=*high)
+            low++; 
+        else
+        {
+            high--;
+            low++;
+        }
+        }
+            
+    }
+    
+    double findMedian() {
+        return (*low+*high)/2;
+    }
+};
 
+/**
+ * Your MedianFinder object will be instantiated and called as such:
+ * MedianFinder obj = new MedianFinder();
+ * obj.addNum(num);
+ * double param_2 = obj.findMedian();
+ */
