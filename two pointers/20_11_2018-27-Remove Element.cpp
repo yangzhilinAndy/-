@@ -1,3 +1,4 @@
+//My solution here, a little complicated
 class Solution {
 public:
     int removeElement(vector<int>& nums, int val) {
@@ -33,5 +34,18 @@ public:
         return it2-nums.begin(); 
         
     return it2-nums.begin()+1;
+    }
+};
+
+//A short and concise solution using the functionality "erase":
+//This answer credits to the user Zone_N on https://leetcode.com/problems/remove-element/discuss/195191/4ms-9-lines-C++
+
+class Solution {
+public:
+    int removeElement(vector<int>& nums, int val) {
+        for(auto tmp=nums.begin();tmp!=nums.end();)
+            if(*tmp++==val)
+                --tmp=nums.erase(tmp++);
+        return nums.size();
     }
 };
