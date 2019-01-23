@@ -8,7 +8,7 @@ public:
         for (auto j=nums.begin(); j<nums.end(); j++)
         {
             while (j>nums.begin() && j<nums.end() && *j==*(j-1))
-                j++;
+                j++; //Remove duplicate! Also be aware that when you increment j inside for loop, it can go out of bound!
             if (j>=nums.end())
                 break;
             auto i1=j+1,i2=nums.end();
@@ -28,7 +28,7 @@ public:
                     res.push_back(ans);
                     i1++;
                     while (i1>nums.begin() && i1<nums.end() && *i1==*(i1-1))
-                        i1++;
+                        i1++; //Remove duplicate! 
                 }
             }
         }
