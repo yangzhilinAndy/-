@@ -5,10 +5,9 @@ public:
         if (nums.size()<3)
             return res;
         sort(nums.begin(),nums.end());
-        int prev=nums[0]; //Record the 1st num to avoid duplicate
         for (auto j=nums.begin(); j<nums.end(); j++)
         {
-            while (j>nums.begin() && j<nums.end() && *j==prev)
+            while (j>nums.begin() && j<nums.end() && *j==*(j-1))
                 j++;
             if (j>=nums.end())
                 break;
@@ -27,12 +26,11 @@ public:
                     ans.push_back(*i1);
                     ans.push_back(*i2);
                     res.push_back(ans);
-                    int has=*i1;
-                    while (i1>nums.begin() && i1<nums.end() && *i1==has)
-                        i1++; //Record the second num to avoid duplicate
+                    i1++;
+                    while (i1>nums.begin() && i1<nums.end() && *i1==*(i1-1))
+                        i1++;
                 }
             }
-            prev=*j;
         }
          return res;   
     }
